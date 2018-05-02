@@ -12,6 +12,7 @@ function pullAllDockerImages(){
     docker pull maven:3.5.0-jdk-8-alpine
     docker pull sath89/oracle-12c:latest
     docker pull kaneproject/ansible:2.4.3.0
+    docker pull kaneproject/base-commands:latest
 }
 # Destroy all persistent data
 function clearAll(){
@@ -50,6 +51,10 @@ function revealjs() {
 # Git with ssh client
 function git() {
     docker run --rm -it -v "${PWD}":/mnt -v git-global:/root -w /mnt kaneproject/docker-git:2.15.0-r1 "$@"
+}
+# Tree command
+function tree() {
+    docker run --rm -it -v "${PWD}":/mnt -w /mnt kaneproject/base-commands:latest tree "$@"
 }
 # Basic node functions 
 function npm() {
