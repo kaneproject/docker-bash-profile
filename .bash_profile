@@ -92,7 +92,7 @@ function weblogic-12c(){
 } 
 # Maven function. We can deal with parent directories using the most parent directory and launch with mvn -C <child dir> instruction
 function mvn(){
-    docker run -it -rm -v maven-data:/root/.m2 -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.5.0-jdk-8-alpine mvn "$@"
+    docker run -it --rm -v maven-data:/root/.m2 -v "$PWD":/usr/src/mymaven -w /usr/src/mymaven maven:3.5.3-jdk-8-alpine mvn "$@"
 }
 # Oracle 12c express (ready to connect!)
 function oracle12c() {
